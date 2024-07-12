@@ -17,22 +17,32 @@ with mun.track. If not, see <http://www.gnu.org/licenses/>.
 
 * {
 	margin: 0; padding: 0;
+	font-family: iosevka, monospace;
 }
 
 body {
 	background: #222;
-	color: #fff;
-	font-family: arial, sans-serif;
+	color: white;
 	font-size: 12px;
 	overflow: hidden;
 }
 
 h1 {
-  background: #0b3e6f url(images/ui-bg_diagonals-thick_15_0b3e6f_40x40.png);
-	border-bottom: 1px solid #000;
+  	background-color: #0b3e6f;
 	height: 70px;
 	font-size: 60px;
-	padding: 7px 15px;
+	font-weight: 400;
+	padding: 7px 15px 15px;
+	border-radius: 0 0 4px 4px;
+}
+
+#title-wrap {
+	padding: 0 7px 7px;
+	margin: 0 20px 20px;
+	background-color: #111;
+	border: 1px solid black;
+	border-top: 0;
+	border-radius: 0 0 7px 7px;
 }
 
 h3 {
@@ -47,33 +57,42 @@ h3 {
 	float: left;
 	margin: 0;
 	width: 375px;
+	overflow: auto;
 }
+
 
 #left .widget, #left dd, #left dt {
 	font-size: 26px;
 }
 
-#left .widget h2 {
-	font-size: 30px;
+.spacer {
+	margin: 5px 0;
+	border-bottom: 1px solid #666;
 }
 
-#right{
+#spacer-left {
+	margin-left: 2px;
+} #spacer-right {
+	margin-right: 1px;
+}
+
+#right {
 	margin-left: 400px;
 }
 
 .widget {
-	background: #111 url(images/ui-bg_gloss-wave_20_111111_500x100.png) repeat-x;
-	border: 1px solid #000;
-	border-radius: 4px;
+	background-color: #111;
+	border: 1px solid black;
+	border-radius: 7px;
 	font-size: 36px;
 	margin: 0 0 15px;
 	padding: 5px;
 }
 
 .widget h2 {
-	background: url(images/ui-bg_dots-medium_15_0b3e6f_4x4.png);
+	background-color: #0b3e6f;
 	border-radius: 4px;
-	font-size: 40px;
+	font-size: 30px;
 	margin: 2px 2px 8px;
 	padding: 5px;
 	text-align: center;
@@ -89,7 +108,7 @@ dt {
 	font-size: 36px;
 	font-weight: bold;
 	line-height: 39px;
-	padding-right: 6%;
+	padding-right: 4%;
 	text-align: right;
 	width: 45%;
 }
@@ -98,6 +117,7 @@ dd {
 	float: left;
 	font-size: 36px;
 	line-height: 39px;
+	padding-left: 4%;
 	width: 45%;
 }
 
@@ -141,30 +161,32 @@ dd {
 	font-weight: bold;
 }
 
+#command {
+	outline: none;
+}
 
 #controller {
-	background: #191919;
+	background-color: #111;
 	bottom: 0;
-	font-family: monospace;
 	height: 40px;
 	padding: 3px 3px 0;
 	position: fixed;
 	width: 100%;
 	z-index: 50;
+	border-top: 1px solid black;
 }
 
 #console {
-	color: #fff;
+	color: white;
 	height: 20px;
 	width: 100%;
 }
 
 #controller input {
-	background: #191919;
+	background: inherit;
 	border: none;
-	bottom: 3px;
-	color: #ffffff;
-	font-family: monospace;
+	bottom: 4px;
+	color: white;
 	font-size: 12px;
 	position: absolute;
 	width: 100%;
@@ -177,15 +199,15 @@ dd {
 }
 
 #vote-results.fails {
-	color: red;
+	color: #a20;
 }
 
 #vote-results.ties {
-	color: yellow;
+	color: #aa0;
 }
 
 #vote-results.passes {
-	color: #1d4c7a;
+	color: #0b3e6f;
 }
 
 dd.small {
@@ -216,4 +238,8 @@ table code {
 	font-size: 48px;
 	font-weight: bold;
 	text-align: center;
+}
+
+#timer-wrapper {
+	border-radius: 7px;
 }

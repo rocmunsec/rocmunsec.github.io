@@ -1,0 +1,27 @@
+@font-face {
+    font-family: iosevka;
+    src: url(/public/iosevka/iosevka-regular.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: iosevka;
+    src: url(/public/iosevka/iosevka-italic.ttf) format("truetype");
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: iosevka;
+    src: url(/public/iosevka/iosevka-semibold.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: iosevka;
+    src: url(/public/iosevka/iosevka-semibolditalic.ttf) format("truetype");
+    font-style: italic;
+    font-weight: 700;
+}

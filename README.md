@@ -1,20 +1,18 @@
+**disclaimer:** this fork is unfinished. for now, just assume nothing works —IR
+
 # mun.track
 
 mun.track is a Model UN committee dashboard.
 
-![mun.track dasbhoard](https://cloud.githubusercontent.com/assets/882976/3309208/09b35bbc-f695-11e3-9607-065d622b8033.png)
+![mun.track dashboard](https://cloud.githubusercontent.com/assets/882976/3309208/09b35bbc-f695-11e3-9607-065d622b8033.png)
 
-### Try it now!
-
-<a href="http://muntrackapp.com">
-  <img src="https://cloud.githubusercontent.com/assets/882976/3309253/4ef545ae-f696-11e3-80ce-6ae6a58fdefa.png">
-</a>
+REPLACE IMAGE^^
 
 ## The Theory
 
 If you attended a Model UN conference, your committee chairs will probably use a
 chalkboard or a Microsoft Word document to manage the general speakers lists,
-the rolling speakers list, quorum, and speaking time. This is inefficent and
+the rolling speakers list, quorum, and speaking time. This is inefficient and
 gets messy fast.
 
 mun.track is a sleek online dashboard for your Model UN committee that
@@ -36,25 +34,26 @@ relevant prompts.
 
 ### Available commands
 
-| command     | shortcut | description
-|-------------|----------|----------------------------------------------------
-| `help`      | `?`      | Display this table
-| `settitle`  | `sh`     | Set title
-| `setquorum` | `sq`     | Set quorum
-| `settime`   | `st`     | Set speaking time
-| `setexts`   | `se`     | Set speaking extensions
-| `add`       | `a`      | Add delegates to current speakers list
-| `insert`    | `i`      | Insert delegate into current speakers list
-| `change`    | `c`      | Change delegate in current speakers list
-| `flip`      | `f`      | Flip delegates in current speakers list
-| `delete`    | `d`      | Remove delegates from current speakerslist
-| `next`      | `n`      | Advance speakers list
-| `prev`      | `p`      | Return to previous delegate in speakers list
-| `switch`    | `s`      | Switch between rolling/general/voting speakers list
-| `vote`      | `v`      | Enter voting procedure
-| `extend`    | `e`      | Extend current delegate's speaking time
-| `timer`     | `t`      | Start large timer (for caucuses)
-| `spacebar`  | n/a      | Start/stop speaking timer
+| command     | shortcut | description                                         |
+|-------------|----------|-----------------------------------------------------|
+| `help`      | `?`      | Display this table                                  |
+| `settitle`  | `sh`     | Set title                                           |
+| `setquorum` | `sq`     | Set quorum                                          |
+| `settime`   | `st`     | Set speaking time                                   |
+| `setexts`   | `se`     | Set speaking extensions                             |
+| `add`       | `a`      | Add delegates to current speakers list              |
+| `insert`    | `i`      | Insert delegate into current speakers list          |
+| `change`    | `c`      | Change delegate in current speakers list            |
+| `flip`      | `f`      | Flip delegates in current speakers list             |
+| `delete`    | `d`      | Remove delegates from current speakers list         |
+| `next`      | `n`      | Advance speakers list                               |
+| `prev`      | `p`      | Return to previous delegate in speakers list        |
+| `switch`    | `s`      | Switch between rolling/general/voting speakers list |
+| `vote`      | `v`      | Enter voting procedure                              |
+| `extend`    | `e`      | Extend current delegate's speaking time             |
+| `timer`     | `t`      | Start large timer (for caucuses)                    |
+| `mod`       | `m`      | Enter a moderated caucus                            |
+| `spacebar`  | n/a      | Start/stop speaking timer                           |
 
 ### Display configuration
 
@@ -70,11 +69,6 @@ We love contributions! See [CONTRIBUTING](CONTRIBUTING.md).
 [muntrack]: http://muntrackapp.com
 
 ## License
-
-<a href="http://www.gnu.org/licenses/agpl-3.0.html">
-  <img src="http://www.gnu.org/graphics/agplv3-155x51.png"
-    alt="agplv3" align="right">
-</a>
 
 mun.track is free software: free to use, free to modify, and free to distribute
 under the terms of the [Affero GNU General Public License, version 3][agpl].
