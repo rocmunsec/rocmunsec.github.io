@@ -1,6 +1,3 @@
 todo:
-- fix the help dialog (hitting `h` then enter appears to automatically open the link to source code in the dialog)
 - finish mods
 - do something with country shorthand for entry?
-- quorum sort of breaks at 100. is it necessary to fix? (probably not)
-- caucus bug: entering 0:00 takes you into NegativeLand™ with times like -5:0-1. possible fix: just disallow 0:00

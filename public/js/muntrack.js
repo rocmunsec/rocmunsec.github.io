@@ -63,7 +63,7 @@ let callback = null;
 let country;
 let timer = null;
 let bigTimer = null;
-let mcTimer1 = null; //mc: (m)od (c)aucus
+let mcTimer1 = null; //(m)od (c)aucus
 let mcTimer2 = null;
 
 let list = 0;
@@ -124,7 +124,7 @@ $(document).ready(function () {
         show: "fade", hide: "explode",
         close: function () {
             $('#timer').stop(true, true);
-            print("mun.track ready");
+            print("ready");
             $("#controller").css("zIndex", 1);
             $("#command").focus()
         },
@@ -148,6 +148,9 @@ $(document).ready(function () {
         show: "fade", hide: "explode",
         resizable: false, draggable: false,
         close: function () {
+            $('#total-time').stop(true, true);
+            // $('#speaker-time').stop(true, true); //for when this is implemented
+            print("ready");
             $("#command").focus()
         },
         autoOpen: false
@@ -182,6 +185,15 @@ $(document).ready(function () {
     $("body").mouseup(function() {
         $("#command").focus();
     });
+
+    //prevent the link from opening automatically once the help dialog is opened
+    $("#source-code-link").keypress(function(e) {
+        if(e.which===13) { //on enter
+            e.preventDefault();
+            $("#source-code-link").blur(); //and de-focus the link
+        }
+    });
+
     $(window).unload(function() {});
     $("#command").focus();
 });
@@ -205,7 +217,7 @@ function keydownHandler(event) {
         isPrompt = false;
         callback = null;
         $(this).val("");
-        print("mun.track ready");
+        print("ready");
     }
 }
 
@@ -241,7 +253,7 @@ function tick() {
 function bigTick() {
     let time = $('#timer').html().split(':');
     let seconds = (parseInt(time[0], 10) * 60) + parseInt(time[1], 10) - 1;
-    console.log(seconds, seconds);
+    console.log(seconds);
     if (seconds === 0) {
         $('#timer').effect("shake", {times: 1000, distance: "10"}, 100);
         clearInterval(bigTimer);
@@ -254,8 +266,10 @@ function bigTick() {
 
 function modTick() {
     let time = $('#total-time').html().split(':');
+    let speakerTime = $('#speaker-time').html().split(':');
     let seconds = (parseInt(time[0], 10) * 60) + parseInt(time[1], 10) - 1;
-    console.log(seconds, seconds);
+    let speakerSeconds = (parseInt(speakerTime[0], 10) * 60) + parseInt(speakerTime[1], 10) - 1;
+    console.log(seconds);
     if (seconds === 0) {
         $('#total-time').effect("shake", {times: 1000, distance: "10"}, 100);
         clearInterval(mcTimer1);
@@ -272,9 +286,7 @@ function print(string) {
 
 function prompt(text, callbackIn, defaultVal) {
     print(text);
-    if (defaultVal) {
-        $("#command").val(defaultVal).select();
-    }
+    if (defaultVal) $("#command").val(defaultVal).select();
 
     isPrompt = true;
     isCountryPrompt = false;
@@ -284,7 +296,7 @@ function prompt(text, callbackIn, defaultVal) {
 function promptCallback(input) {
     isPrompt = false;
     isCountryPrompt = false;
-    print("mun.track ready");
+    print("ready");
 
     callback(input);
 }
@@ -379,12 +391,25 @@ function update() {
     $("#update").dialog("open");
 }
 
-function startTimer(time) {
+function checkTime(time) {
+    let good = true;
     if (!time.match(/^\d{1,2}:\d{2}$/)) {
         print("invalid time");
-        return;
+        good = false;
+    } else if (time.match(/^0:00$/)) {
+        /* there was a bug where 0:00 would make the timer go into negative time. I was too lazy to fix this, so
+        I figured: denial is the answer to most of life's problems--let's fix another one */
+        print("why. why would you want to do that");
+        good = false;
     }
-    $("#timer").html(time).dialog("open");
+    return good;
+}
+
+function startTimer(time) {
+    if (!checkTime(time)) return;
+
+    $("#timer").html(time);
+    $("#timer").dialog("open");
     $("#controller").css("zIndex", 5000);
     $("#command").focus();
 
@@ -393,25 +418,29 @@ function startTimer(time) {
 }
 
 function mod(time) {
-    if (!time.match(/^\d{1,2}:\d{2}$/)) {
-        print("invalid time");
-        return;
-    }
+    if (!checkTime(time)) return;
+
     clearInterval(mcTimer1);
     $("#total-time").html(time);
     prompt("speaker time?", enterMod, "0:30");
 }
 
 function enterMod(speakerTime) {
-    if (!speakerTime.match(/^\d{1,2}:\d{2}$/)) {
-        print("invalid time");
+    if (!checkTime(speakerTime)) return;
+
+    let totalTimes = $("#total-time").html().split(':');
+    let speakerTimes = speakerTime.split(':');
+    if(totalTimes[0] < speakerTimes[0] || (totalTimes[0] === speakerTimes[0] && totalTimes[1] < speakerTimes[1])) {
+        print("invalid speaker time: must be less than total time");
         return;
     }
-    $("#speaker-time").html(speakerTime);
+
+    $("#speaker-time").html(speakerTime).dialog("open");
     $("#mod").dialog("open");
     $("#controller").css("zIndex", 5000);
     $("#command").focus();
 
+    clearInterval(mcTimer1);
     mcTimer1 = setInterval(modTick, 1000);
 }
 
@@ -460,12 +489,13 @@ function tallyResults() {
 }
 
 function about() {
-    print("v" + VERSION + " - developed by <a href=\"https://www.designbynikhil.com\">nikhil benesch</a>");
+    print("v" + VERSION + " - developed by nikhil benesch");
 }
 
 function setTitle(input) {
     title = input;
     $("#title").html(input);
+    $("title").html("mun.track – " + input);
 }
 
 function setQuorum(input) {
@@ -658,7 +688,7 @@ function generateList() {
             let style = ">";
             if (i < current[list]) style = " class=\"strike\">";
             else if (i === current[list]) style = " class=\"current\">";
-            output += "<li" + style + (i + 1) + ".&nbsp;&nbsp;" + countries[list][i] + "</li>";
+            output += "<li" + style + (i + 1) + ".&nbsp;" + countries[list][i] + "</li>";
         }
 
         output += "</ul><ul class=\"right\"><li class=\"bold\">Against</li>";
@@ -666,7 +696,7 @@ function generateList() {
             let style = ">";
             if (i < current[list]) style = " class=\"strike\">";
             else if (i === current[list]) style = " class=\"current\">";
-            output += "<li" + style + (i + 1) + ".&nbsp;&nbsp;" + countries[list][i] + "</li>";
+            output += "<li" + style + (i + 1) + ".&nbsp;" + countries[list][i] + "</li>";
         }
         output += "</ul>";
 
@@ -676,7 +706,7 @@ function generateList() {
             let style = ">";
             if (i < current[list]) style = " class=\"strike\">";
             else if (i === current[list]) style = " class=\"current\">";
-            $("#speaker-list").append("<li" + style + (i + 1) + ".&nbsp;&nbsp;" + countries[list][i] + "</li>");
+            $("#speaker-list").append("<li" + style + (i + 1) + ".&nbsp;" + countries[list][i] + "</li>");
         }
     }
 
@@ -736,6 +766,7 @@ function retrieve() {
         }
         quorum = obj.quorum;
         times = obj.times;
+        //note: `times` randomly became 8 here, but then equally randomly fixed itself. this may recur
         countries = obj.countries;
         current = obj.current;
         extensions = obj.extensions;

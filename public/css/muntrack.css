@@ -243,3 +243,12 @@ table code {
 #timer-wrapper {
 	border-radius: 7px;
 }
+
+.ui-widget {
+	border-radius: 7px;
+}
+
+.ui-widget-header {
+	margin: 4px;
+	border: none;
+}
