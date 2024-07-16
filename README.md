@@ -4,9 +4,7 @@
 
 mun.track is a Model UN committee dashboard.
 
-![mun.track dashboard](https://cloud.githubusercontent.com/assets/882976/3309208/09b35bbc-f695-11e3-9607-065d622b8033.png)
-
-REPLACE IMAGE^^
+![mun.track dashboard](public/dashboard.png)
 
 ## The Theory
 
@@ -29,31 +27,31 @@ screen. The learning curve is a bit steep, but
 * the command-line is the only interface discreet enough to not disrupt your
   delegates.
 
-To run a command, simply type its name and press &lt;enter>. Then follow any
+To run a command, simply type its name and press `&lt;enter>`. Then follow any
 relevant prompts.
 
 ### Available commands
 
-| command     | shortcut | description                                         |
-|-------------|----------|-----------------------------------------------------|
-| `help`      | `?`      | Display this table                                  |
-| `settitle`  | `sh`     | Set title                                           |
-| `setquorum` | `sq`     | Set quorum                                          |
-| `settime`   | `st`     | Set speaking time                                   |
-| `setexts`   | `se`     | Set speaking extensions                             |
-| `add`       | `a`      | Add delegates to current speakers list              |
-| `insert`    | `i`      | Insert delegate into current speakers list          |
-| `change`    | `c`      | Change delegate in current speakers list            |
-| `flip`      | `f`      | Flip delegates in current speakers list             |
-| `delete`    | `d`      | Remove delegates from current speakers list         |
-| `next`      | `n`      | Advance speakers list                               |
-| `prev`      | `p`      | Return to previous delegate in speakers list        |
-| `switch`    | `s`      | Switch between rolling/general/voting speakers list |
-| `vote`      | `v`      | Enter voting procedure                              |
-| `extend`    | `e`      | Extend current delegate's speaking time             |
-| `timer`     | `t`      | Start large timer (for caucuses)                    |
-| `mod`       | `m`      | Enter a moderated caucus                            |
-| `spacebar`  | n/a      | Start/stop speaking timer                           |
+| command     | shortcut | description                                          |
+|-------------|----------|------------------------------------------------------|
+| `help`      | `?`      | Display this table                                   |
+| `settitle`  | `sh`     | Set title                                            |
+| `setquorum` | `sq`     | Set quorum                                           |
+| `settime`   | `st`     | Set speaking time                                    |
+| `setexts`   | `se`     | Set speaking extensions                              |
+| `add`       | `a`      | Add delegates to current speakers list               |
+| `insert`    | `i`      | Insert delegate into current speakers list           |
+| `change`    | `c`      | Change delegate in current speakers list             |
+| `flip`      | `f`      | Flip delegates in current speakers list              |
+| `delete`    | `d`      | Remove delegates from current speakers list          |
+| `next`      | `n`      | Advance speakers list                                |
+| `prev`      | `p`      | Return to previous delegate in speakers list         |
+| `switch`    | `s`      | Switch between rolling/general/voting speakers list  |
+| `vote`      | `v`      | Enter voting procedure                               |
+| `extend`    | `e`      | Extend current delegate's speaking time              |
+| `timer`     | `t`      | Start large timer (for caucuses)                     |
+| `mod`       | `m`      | Enter a moderated caucus (not fully implemented yet) |
+| `spacebar`  | n/a      | Start/stop speaking timer                            |
 
 ### Display configuration
 
@@ -62,11 +60,21 @@ and mun.track projected behind you. We recommend you enable the "mirror
 displays" option to project exactly what appears on your screen so you're aware
 of what your delegates can see.
 
+## Notes on the original mun.track
+
+The original mun.track was developed by Nikhil Benesch, whose website is unfortunately lost to the sands of time.
+The code is still there, however, at [benesch/mun.track](https://github.com/benesch/mun.track).
+
+Changes from the original mun.track:
+* The mun.track UI has been redesigned according to flat design principles.
+* A number of bugs have been addressed and fixed:
+  * The "help" dialog no longer automatically opens the GitHub repository when triggered from the command line.
+  * Timers no longer accept "0:00" as a valid time; this was causing issues.
+  * The commandline no longer has that attention-grabbing blue outline.
+
 ## Contributing
 
 We love contributions! See [CONTRIBUTING](CONTRIBUTING.md).
-
-[muntrack]: http://muntrackapp.com
 
 ## License
 

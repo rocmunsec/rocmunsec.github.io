@@ -1,3 +1,4 @@
 todo:
 - finish mods
 - do something with country shorthand for entry?
+- bugs still exist regarding reopening the big timer once closed (carrying over from original; workaround: reload)

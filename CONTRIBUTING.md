@@ -2,6 +2,14 @@ We love pull requests. Here's a quick guide.
 
 ## Getting started
 
+
+### A message from MEisSCAMMER (the forker)
+Fair warning: you may have seen "spaghetti code" before, but this code is less "spaghetti" and more "Flying Spaghetti
+Monster"; *contribute at your own risk ok?*
+
+Also, the rest of this file has been unaltered from the original mun.track. *n.b.*: most of this isn't needed with a good 
+IDE (I used IntelliJ).
+
 ### Node.js
 
 First, install [Node.js][node], which we use as our webserver.
@@ -69,4 +77,4 @@ I wrote this in high school! Cut me some slack.
 
 [brew]: http://brew.sh
 [node]: http://nodejs.org
-[pr]: https://github.com/benesch/mun.track/compare/
+[pr]: https://github.com/MEisSCAMMER/mun.track/compare/
