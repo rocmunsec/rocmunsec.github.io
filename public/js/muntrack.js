@@ -495,7 +495,7 @@ function about() {
 function setTitle(input) {
     title = input;
     $("#title").html(input);
-    $("title").html("mun.track – " + input);
+    $("title").html(input==="mun.track" ? input : ("mun.track – " + input));
 }
 
 function setQuorum(input) {

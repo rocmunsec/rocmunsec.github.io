@@ -6,6 +6,10 @@ mun.track is a Model UN committee dashboard.
 
 ![mun.track dashboard](public/dashboard.png)
 
+### Try it out!
+
+[https://theadder.org/muntrack](https://theadder.org/muntrack)
+
 ## The Theory
 
 If you attended a Model UN conference, your committee chairs will probably use a
@@ -68,7 +72,8 @@ The code is still there, however, at [benesch/mun.track](https://github.com/bene
 Changes from the original mun.track:
 * The mun.track UI has been redesigned according to flat design principles.
 * A number of bugs have been addressed and fixed:
-  * The "help" dialog no longer automatically opens the GitHub repository when triggered from the command line.
+  * On Firefox, the "help" dialog no longer automatically opens the GitHub repository when triggered from the command
+line.
   * Timers no longer accept "0:00" as a valid time; this was causing issues.
   * The commandline no longer has that attention-grabbing blue outline.
 
