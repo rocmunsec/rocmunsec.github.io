@@ -75,6 +75,7 @@ Changes from the original mun.track:
   * On Firefox, the "help" dialog no longer automatically opens the GitHub repository when triggered from the command
 line.
   * Timers no longer accept "0:00" as a valid time; this was causing issues.
+  * On some platforms, the large timer would not function after being closed previously. This has been fixed.
   * The commandline no longer has that attention-grabbing blue outline.
 
 ## Contributing

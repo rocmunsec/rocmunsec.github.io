@@ -64,7 +64,8 @@ let country;
 let timer = null;
 let bigTimer = null;
 let mcTimer1 = null; //(m)od (c)aucus
-let mcTimer2 = null;
+let modSpeakerTime = null;
+let modMode = false;
 
 let list = 0;
 let quorum = null;
@@ -123,7 +124,7 @@ $(document).ready(function () {
         resizable: false, draggable: false,
         show: "fade", hide: "explode",
         close: function () {
-            $('#timer').stop(true, true);
+            $("#timer").stop(true, true);
             print("ready");
             $("#controller").css("zIndex", 1);
             $("#command").focus()
@@ -148,8 +149,8 @@ $(document).ready(function () {
         show: "fade", hide: "explode",
         resizable: false, draggable: false,
         close: function () {
-            $('#total-time').stop(true, true);
-            // $('#speaker-time').stop(true, true); //for when this is implemented
+            $("#total-time").stop(true, true);
+            // $("#speaker-time").stop(true, true); //for when this is implemented
             print("ready");
             $("#command").focus()
         },
@@ -204,17 +205,35 @@ function keydownHandler(event) {
         $("#command").val("");
         process(command);
     } else if (event.which === 32 && !isPrompt) { //spacebar
-        if (!timer) {
-            timer = setInterval(tick, 1000);
+        if(!modMode) {
+            if (!timer) {
+                timer = setInterval(tick, 1000);
+            } else {
+                clearInterval(timer);
+                timer = null;
+            }
         } else {
-            clearInterval(timer);
-            timer = null;
+            clearInterval(mcTimer1);
+            $("#speaker-time").html(modSpeakerTime);
+            $("#speaker-time").css("color", "white");
+            mcTimer1 = null;
+            mcTimer1 = setInterval(modTick, 1000);
         }
+
         $("#command").val("");
         event.stopPropagation();
         return false;
     } else if (event.which === 27) { //escape
+        //clear timers
+        if(bigTimer !== null) {
+            clearInterval(bigTimer);
+            bigTimer = null;
+        } else if(mcTimer1 !== null) {
+            clearInterval(mcTimer1);
+            mcTimer1 = null;
+        }
         isPrompt = false;
+        if(modMode) modMode = false;
         callback = null;
         $(this).val("");
         print("ready");
@@ -236,48 +255,55 @@ function checkFullScreen() {
 }
 
 function tick() {
-    let seconds = parseInt($('#info-time').html());
+    let seconds = parseInt($("#info-time").html());
     if (seconds > 0) {
-        $('#info-time').html((parseInt($('#info-time').html()) - 1) + ' seconds');
+        $("#info-time").html((parseInt($("#info-time").html()) - 1) + " seconds");
     }
     if (seconds <= 11) {
-        $('#info-time').css("color", "#aa0");
+        $("#info-time").css("color", "#aa0");
     }
     if (seconds <= 1) {
-        $('#info-time').css("color", "#a20");
+        $("#info-time").css("color", "#a20");
         clearTimeout(timer);
         timer = null;
     }
 }
 
 function bigTick() {
-    let time = $('#timer').html().split(':');
+    let time = $("#timer").html().split(":");
     let seconds = (parseInt(time[0], 10) * 60) + parseInt(time[1], 10) - 1;
     console.log(seconds);
     if (seconds === 0) {
-        $('#timer').effect("shake", {times: 1000, distance: "10"}, 100);
+        $("#timer").effect("shake", {times: 1000, distance: "10"}, 100);
         clearInterval(bigTimer);
         bigTimer = null;
     }
     let minutes = Math.floor(seconds / 60);
     seconds %= 60;
-    $('#timer').html(minutes + ":" + (seconds < 10 ? "0" + seconds : seconds));
+    $("#timer").html(minutes + ":" + (seconds < 10 ? "0" + seconds : seconds));
 }
 
 function modTick() {
-    let time = $('#total-time').html().split(':');
-    let speakerTime = $('#speaker-time').html().split(':');
+    let time = $("#total-time").html().split(":");
+    let speakerTime = $("#speaker-time").html().split(":");
     let seconds = (parseInt(time[0], 10) * 60) + parseInt(time[1], 10) - 1;
     let speakerSeconds = (parseInt(speakerTime[0], 10) * 60) + parseInt(speakerTime[1], 10) - 1;
-    console.log(seconds);
+    console.log(speakerSeconds);
     if (seconds === 0) {
-        $('#total-time').effect("shake", {times: 1000, distance: "10"}, 100);
+        $("#total-time").effect("shake", {times: 1000, distance: "10"}, 100);
+        clearInterval(mcTimer1);
+        mcTimer1 = null;
+    } if(speakerSeconds === 0) {
+        $("#speaker-time").css("color", "#a20");
+        $("#speaker-heading").effect("shake", {times: 5, distance: "10"}, 100);
         clearInterval(mcTimer1);
         mcTimer1 = null;
     }
     let minutes = Math.floor(seconds / 60);
+    let speakerMinutes = Math.floor(speakerSeconds / 60);
     seconds %= 60;
-    $('#total-time').html(minutes + ":" + (seconds < 10 ? "0" + seconds : seconds));
+    $("#total-time").html(minutes + ":" + (seconds < 10 ? "0" + seconds : seconds));
+    $("#speaker-time").html(speakerMinutes + ":" + (speakerSeconds < 10 ? "0" + speakerSeconds : speakerSeconds));
 }
 
 function print(string) {
@@ -398,7 +424,7 @@ function checkTime(time) {
         good = false;
     } else if (time.match(/^0:00$/)) {
         /* there was a bug where 0:00 would make the timer go into negative time. I was too lazy to fix this, so
-        I figured: denial is the answer to most of life's problems--let's fix another one */
+        I figured: denial is the answer to most of life"s problems--let"s fix another one */
         print("why. why would you want to do that");
         good = false;
     }
@@ -427,9 +453,11 @@ function mod(time) {
 
 function enterMod(speakerTime) {
     if (!checkTime(speakerTime)) return;
+    modSpeakerTime = speakerTime;
+    modMode = true;
 
-    let totalTimes = $("#total-time").html().split(':');
-    let speakerTimes = speakerTime.split(':');
+    let totalTimes = $("#total-time").html().split(":");
+    let speakerTimes = speakerTime.split(":");
     if(totalTimes[0] < speakerTimes[0] || (totalTimes[0] === speakerTimes[0] && totalTimes[1] < speakerTimes[1])) {
         print("invalid speaker time: must be less than total time");
         return;

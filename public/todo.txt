@@ -1,4 +1,6 @@
 todo:
 - finish mods
-- do something with country shorthand for entry?
-- bugs still exist regarding reopening the big timer once closed (carrying over from original; workaround: reload)
+- do something with country shorthand for entry? (these can be unintuitive, and i'd need to rope in databases)
+- what should space do in mod mode? (currently: pause if timer running/move to next speaker if timer ended; should it
+  always move to next speaker? maybe space is always pause and enter is always next speaker? that'd be work though)
+- mod mode: colors? (currently none)
