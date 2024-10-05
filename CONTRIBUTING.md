@@ -3,7 +3,7 @@ We love pull requests. Here's a quick guide.
 ## Getting started
 
 
-### A message from MEisSCAMMER (the forker)
+### A message from Ishaan (the forker)
 Fair warning: you may have seen "spaghetti code" before, but this code is less "spaghetti" and more "Flying Spaghetti
 Monster"; *contribute at your own risk ok?*
 

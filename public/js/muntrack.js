@@ -16,7 +16,7 @@
 // along with mun.track. If not, see <http://www.gnu.org/licenses/>.
 //noinspection JSUnresolvedReference
 
-const VERSION = "0.1";
+const VERSION = "1.0";
 
 let countryList = ["Afghanistan", "Aland Islands", "Albania", "Algeria", "American Samoa",
     "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia",
@@ -199,6 +199,19 @@ $(document).ready(function () {
     $("#command").focus();
 });
 
+function compareTimes(time1, time2) {
+    //check if times are in mm:ss format
+    if (!time1.match(/^\d{1,2}:\d{2}$/) || !time2.match(/^\d{1,2}:\d{2}$/)) {
+        return NaN;
+    }
+
+    let time1Arr = time1.split(":");
+    let time2Arr = time2.split(":");
+    let time1Sec = parseInt(time1Arr[0]) * 60 + parseInt(time1Arr[1]);
+    let time2Sec = parseInt(time2Arr[0]) * 60 + parseInt(time2Arr[1]);
+    return time1Sec - time2Sec;
+}
+
 function keydownHandler(event) {
     if (event.which === 13) { //enter
         let command = $("#command").val();
@@ -213,8 +226,13 @@ function keydownHandler(event) {
                 timer = null;
             }
         } else {
+            if($("#total-time").html() === "0:00") return;
             clearInterval(mcTimer1);
             $("#speaker-time").html(modSpeakerTime);
+            //if speaker time is more than total time, set total time to speaker time as well
+            if(compareTimes($("#total-time").html(), modSpeakerTime) < 0) {
+                $("#total-time").html(modSpeakerTime);
+            }
             $("#speaker-time").css("color", "white");
             mcTimer1 = null;
             mcTimer1 = setInterval(modTick, 1000);
@@ -448,11 +466,16 @@ function mod(time) {
 
     clearInterval(mcTimer1);
     $("#total-time").html(time);
-    prompt("speaker time?", enterMod, "0:30");
+    prompt("speaker time? (mm:ss or ss)", enterMod, "30");
 }
 
 function enterMod(speakerTime) {
-    if (!checkTime(speakerTime)) return;
+    if (!checkTime(speakerTime)) {
+        if(speakerTime.match(/^\d{2}$/)) {
+            print("ready");
+            speakerTime = "0:" + speakerTime;
+        } else return;
+    }
     modSpeakerTime = speakerTime;
     modMode = true;
 
@@ -469,6 +492,7 @@ function enterMod(speakerTime) {
     $("#command").focus();
 
     clearInterval(mcTimer1);
+    keydownHandler({which: 32}); //simulate spacebar (reset timer color)
     mcTimer1 = setInterval(modTick, 1000);
 }
 

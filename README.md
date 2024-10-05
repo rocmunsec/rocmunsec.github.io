@@ -1,5 +1,3 @@
-**disclaimer:** this fork is unfinished. for now, just assume nothing works —IR
-
 # mun.track
 
 mun.track is a Model UN committee dashboard.
@@ -68,6 +66,8 @@ of what your delegates can see.
 
 The original mun.track was developed by Nikhil Benesch, whose website is unfortunately lost to the sands of time.
 The code is still there, however, at [benesch/mun.track](https://github.com/benesch/mun.track).
+
+This fork is developed by Ishaan Ramesh, who runs [The Adder](https://theadder.org).
 
 Changes from the original mun.track:
 * The mun.track UI has been redesigned according to flat design principles.
