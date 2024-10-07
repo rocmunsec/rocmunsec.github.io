@@ -16,7 +16,7 @@
 // along with mun.track. If not, see <http://www.gnu.org/licenses/>.
 //noinspection JSUnresolvedReference
 
-const VERSION = "1.0";
+const VERSION = "1.0.1";
 
 let countryList = ["Afghanistan", "Aland Islands", "Albania", "Algeria", "American Samoa",
     "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia",
@@ -26,7 +26,7 @@ let countryList = ["Afghanistan", "Aland Islands", "Albania", "Algeria", "Americ
     "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands",
     "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands",
     "Colombia", "Comoros", "Congo", "DR Congo", "Democratic Republic of the Congo", "Cook Islands", "Costa Rica",
-    "Cote D'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica",
+    "Cote D'Ivoire", "Croatia", "Cuba", "Cyprus", "Czechia", "Denmark", "Djibouti", "Dominica",
     "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia",
     "Ethiopia", "Falkland Islands", "Faroe Islands", "Fiji", "Finland", "France", "French Guiana",
     "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar",

@@ -18,7 +18,7 @@ with mun.track. If not, see <http://www.gnu.org/licenses/>.
 
 * {
 	margin: 0; padding: 0;
-	font-family: iosevka, monospace;
+	font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
@@ -32,7 +32,7 @@ h1 {
   	background-color: #0b3e6f;
 	height: 70px;
 	font-size: 60px;
-	font-weight: 400;
+	font-weight: bold;
 	padding: 7px 15px 15px;
 	border-radius: 0 0 4px 4px;
 }
@@ -51,13 +51,13 @@ h3 {
 }
 
 #wrap {
-	margin: 20px;
+	margin: 30px;
 }
 
 #left {
 	float: left;
 	margin: 0;
-	width: 375px;
+	width: 425px;
 	overflow: auto;
 }
 
@@ -78,7 +78,7 @@ h3 {
 }
 
 #right {
-	margin-left: 400px;
+	margin-left: 450px;
 }
 
 .widget {
@@ -181,6 +181,10 @@ dd {
 	color: white;
 	height: 20px;
 	width: 100%;
+}
+
+#controller *, code {
+	font-family: Iosevka, monospace;
 }
 
 #controller input {

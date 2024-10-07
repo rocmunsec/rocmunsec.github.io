@@ -52,7 +52,7 @@ relevant prompts.
 | `vote`      | `v`      | Enter voting procedure                               |
 | `extend`    | `e`      | Extend current delegate's speaking time              |
 | `timer`     | `t`      | Start large timer (for caucuses)                     |
-| `mod`       | `m`      | Enter a moderated caucus (not fully implemented yet) |
+| `mod`       | `m`      | Enter a moderated caucus                             |
 | `spacebar`  | n/a      | Start/stop speaking timer                            |
 
 ### Display configuration
@@ -77,6 +77,11 @@ line.
   * Timers no longer accept "0:00" as a valid time; this was causing issues.
   * On some platforms, the large timer would not function after being closed previously. This has been fixed.
   * The commandline no longer has that attention-grabbing blue outline.
+* A new functionality has been added for moderated caucuses.
+
+Release notes:
+* **v1.0.0**: Initial release; everything mentioned above is implemented.
+* **v1.0.1**: Changed typeface to Helvetica Neue and changed "Czech Republic" to "Czechia" in country list.
 
 ## Contributing
 
