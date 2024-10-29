@@ -1,0 +1,259 @@
+/*
+Copyright (c) 2014 Nikhil Benesch <nikhil.benesch@gmail.com>
+All modifications to this fork copyright (c) 2024 Ishaan Ramesh
+
+This file is part of mun.track.
+
+mun.track is free software: you can redistribute it and/or modify it under the
+terms of the GNU Affero General Public License version 3 as published by the
+Free Software Foundation.
+
+mun.track is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along
+with mun.track. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+* {
+	margin: 0; padding: 0;
+	font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+	background: #222;
+	color: white;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+h1 {
+  	background-color: #0b3e6f;
+	height: 70px;
+	font-size: 60px;
+	font-weight: bold;
+	padding: 7px 15px 15px;
+	border-radius: 0 0 4px 4px;
+}
+
+#title-wrap {
+	padding: 0 7px 7px;
+	margin: 0 20px 20px;
+	background-color: #111;
+	border: 1px solid black;
+	border-top: 0;
+	border-radius: 0 0 7px 7px;
+}
+
+h3 {
+	font-size: 32px;
+}
+
+#wrap {
+	margin: 30px;
+}
+
+#left {
+	float: left;
+	margin: 0;
+	width: 425px;
+	overflow: auto;
+}
+
+
+#left .widget, #left dd, #left dt {
+	font-size: 26px;
+}
+
+.spacer {
+	margin: 5px 0;
+	border-bottom: 1px solid #666;
+}
+
+#spacer-left {
+	margin-left: 2px;
+} #spacer-right {
+	margin-right: 1px;
+}
+
+#right {
+	margin-left: 450px;
+}
+
+.widget {
+	background-color: #111;
+	border: 1px solid black;
+	border-radius: 7px;
+	font-size: 36px;
+	margin: 0 0 15px;
+	padding: 5px;
+}
+
+.widget h2 {
+	background-color: #0b3e6f;
+	border-radius: 4px;
+	font-size: 30px;
+	margin: 2px 2px 8px;
+	padding: 5px;
+	text-align: center;
+}
+
+dl.info {
+	float: left;
+	width: 100%;
+}
+
+dt {
+	float: left;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 39px;
+	padding-right: 4%;
+	text-align: right;
+	width: 45%;
+}
+
+dd {
+	float: left;
+	font-size: 36px;
+	line-height: 39px;
+	padding-left: 4%;
+	width: 45%;
+}
+
+#speakers ul {
+	list-style-type: none;
+	height: 450px;
+	overflow: auto;
+}
+
+#speakers ul.list0, #speakers ul.list1 {
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	column-count: 2;
+}
+
+#speakers ul.list2 {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#speakers ul ul {
+	float: left;
+	width: 50%;
+}
+
+#speakers ul li {
+	font-size: 36px;
+}
+
+#speakers ul li.strike {
+	text-decoration: line-through;
+}
+
+#speakers ul li.bold {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+#speakers ul li.current {
+	color: #75abff;
+	font-weight: bold;
+}
+
+#command {
+	outline: none;
+}
+
+#controller {
+	background-color: #111;
+	bottom: 0;
+	height: 40px;
+	padding: 3px 3px 0;
+	position: fixed;
+	width: 100%;
+	z-index: 50;
+	border-top: 1px solid black;
+}
+
+#console {
+	color: white;
+	height: 20px;
+	width: 100%;
+}
+
+#controller *, code {
+	font-family: Iosevka, monospace;
+}
+
+#controller input {
+	background: inherit;
+	border: none;
+	bottom: 4px;
+	color: white;
+	font-size: 12px;
+	position: absolute;
+	width: 100%;
+}
+
+#vote-results {
+	font-size: 80px;
+	margin-top: 10px;
+	text-transform: uppercase;
+}
+
+#vote-results.fails {
+	color: #a20;
+}
+
+#vote-results.ties {
+	color: #aa0;
+}
+
+#vote-results.passes {
+	color: #0b3e6f;
+}
+
+dd.small {
+	font-size: .8em;
+}
+
+.clear {
+	clear: both;
+}
+
+a, a:active, a:hover {
+	color: white;
+}
+
+table code {
+	font-weight: bold;
+}
+
+.ui-widget {
+	font-size: 13px;
+}
+
+.big .ui-dialog-titlebar {
+	display: none;
+}
+
+.big {
+	font-size: 48px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#timer-wrapper {
+	border-radius: 7px;
+}
+
+.ui-widget {
+	border-radius: 7px;
+}
+
+.ui-widget-header {
+	margin: 4px;
+	border: none;
+}
