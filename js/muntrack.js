@@ -16,40 +16,35 @@
 // along with mun.track. If not, see <http://www.gnu.org/licenses/>.
 //noinspection JSUnresolvedReference
 
-const VERSION = "1.0.1";
+const VERSION = "1.2.1";
 
-let countryList = ["Afghanistan", "Aland Islands", "Albania", "Algeria", "American Samoa",
-    "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia",
-    "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados",
-    "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina",
-    "Botswana", "Brazil", "British Indian Ocean Territory", "Brunei",
-    "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands",
-    "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands",
-    "Colombia", "Comoros", "Congo", "DR Congo", "Democratic Republic of the Congo", "Cook Islands", "Costa Rica",
-    "Cote D'Ivoire", "Croatia", "Cuba", "Cyprus", "Czechia", "Denmark", "Djibouti", "Dominica",
-    "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia",
-    "Ethiopia", "Falkland Islands", "Faroe Islands", "Fiji", "Finland", "France", "French Guiana",
-    "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar",
-    "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea-Bissau",
-    "Guyana", "Haiti", "Heard Island and Mcdonald Islands", "Holy See", "Honduras", "Hong Kong",
-    "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy",
-    "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "South Korea", "North Korea", "Korea",
-    "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia",
-    "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macao",
-    "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta",
-    "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico",
-    "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco",
-    "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia",
-    "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway",
-    "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru",
-    "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia",
-    "Rwanda", "Saint Helena", "Saint Kitts and Nevis", "Saint Lucia", "Saint Pierre and Miquelon",
-    "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal",
-    "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands",
-    "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan",
-    "Suriname", "Svalbard", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan",
-    "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga",
-    "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda",
+let countryList = ["Afghanistan", "Aland Islands", "Albania", "Algeria", "American Samoa", "Andorra", "Angola",
+    "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria",
+    "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda",
+    "Bhutan", "Bolivia", "Bosnia", "Bosnia and Herzegovina", "Botswana", "Brazil", "British Indian Ocean Territory",
+    "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands",
+    "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia",
+    "Comoros", "Congo", "DR Congo", "Democratic Republic of the Congo", "Cook Islands", "Costa Rica", "Cote D'Ivoire",
+    "Croatia", "Cuba", "Cyprus", "Czechia", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+    "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands",
+    "Faroe Islands", "Fiji", "Finland", "France", "French Guiana", "French Polynesia", "French Southern Territories",
+    "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe",
+    "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard Island and Mcdonald Islands",
+    "Holy See", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland",
+    "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati",
+    "South Korea", "North Korea", "Korea", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia",
+    "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macao", "Macedonia", "Madagascar", "Malawi", "Malaysia",
+    "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico",
+    "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Myanmar",
+    "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua",
+    "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau",
+    "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal",
+    "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", "Rwanda", "Saint Helena", "Saint Kitts and Nevis",
+    "Saint Lucia", "Saint Pierre and Miquelon", "Saint Vincent and the Grenadines", "Samoa", "San Marino",
+    "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia",
+    "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname",
+    "Svalbard", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand",
+    "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda",
     "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands",
     "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands, British", "Virgin Islands, U.S.",
     "Western Sahara", "Yemen", "Zambia", "Zimbabwe"];
@@ -66,6 +61,11 @@ let bigTimer = null;
 let mcTimer1 = null; //(m)od (c)aucus
 let modSpeakerTime = null;
 let modMode = false;
+let modPaused = false;
+let bigTimerMode = false;
+let bigTimerPaused = false;
+let bigTimerWhip = false;
+let whipSpeakerTime = null;
 
 let list = 0;
 let quorum = null;
@@ -77,6 +77,33 @@ let countries = [[], [], []];
 let extensions = [0, 0, 0];
 let extensionTimes = [0, 0, 0];
 let tally = [0, 0, 0];
+
+const lambdas = [
+    () => { prompt("add? (q to exit)", add); isCountryPrompt = true; }, () => prompt("change?", change),
+    () => prompt("delete? (q to exit)", deleter), () => prompt("sure?", clear, "y"),
+    () => keydownHandler({which: 27}), () => prompt("flip?", flip),
+    () => { prompt("insert?", insert); isCountryPrompt = true; }, () => keydownHandler({which: 32}),
+    () => prompt("set time to?", mod, "5:00"),
+    () => prompt("set extensions to?", setExtensions, extensions[list]),
+    () => prompt("set time to?", setTime, parseInt($("#info-time").html())),
+    () => prompt("set title to?", setTitle, $("#title").html()),
+    () => prompt("set quorum to?", setQuorum, parseInt($("#info-quorum").html())),
+    () => prompt("set timer to? (mm or mm:ss)", startTimer, "5:00"),
+    () => prompt("speaking time? (mm:ss or ss)", whip, "30")
+];
+
+const keymaps = {
+    "a": lambdas[0], "about": about, "add": lambdas[0], "b": boot, "boot": boot, "c": lambdas[1], "change": lambdas[1],
+    "clear": lambdas[3], "d": lambdas[2], "del": lambdas[2], "delete": lambdas[2], "deleteall": lambdas[3],
+    "D": lambdas[3], "e": extend, "esc": lambdas[4], "exit": lambdas[4], "extend": extend, "f": lambdas[5],
+    "flip": lambdas[5], "h": help, "help": help, "i": lambdas[6], "insert": lambdas[6], "k": lambdas[7],
+    "m": lambdas[8], "mod": lambdas[8], "n": next, "next": next, "p": prev, "prev": prev, "previous": prev,
+    // "r": remap, "remap": remap, //save for later update
+    "s": switcher, "se": lambdas[9], "setexts": lambdas[9],
+    "setextensions": lambdas[9], "settime": lambdas[10], "settitle": lambdas[11], "setquorum": lambdas[12],
+    "sh": lambdas[11], "space": lambdas[7], "st": lambdas[10], "sq": lambdas[12], "switch": switcher, "t": lambdas[13],
+    "timer": lambdas[13], "v": vote, "vote": vote, "w": lambdas[14], "whip": lambdas[14]
+};
 
 
 $(document).ready(function () {
@@ -98,7 +125,7 @@ $(document).ready(function () {
             $("#command").focus()
         },
         buttons: {
-            "Cool beans": function () {
+            "Got it!": function () {
                 $(this).dialog("close")
             }
         },
@@ -150,7 +177,6 @@ $(document).ready(function () {
         resizable: false, draggable: false,
         close: function () {
             $("#total-time").stop(true, true);
-            // $("#speaker-time").stop(true, true); //for when this is implemented
             print("ready");
             $("#command").focus()
         },
@@ -166,6 +192,32 @@ $(document).ready(function () {
             $("#command").focus()
         },
         autoOpen: false//, closeOnEscape: false
+    });
+
+    $("#remap").dialog({
+        modal: true, dialogClass: "big",
+        width: 800, minHeight: 50,
+        show: "fade", hide: "explode",
+        resizable: false, draggable: false,
+        close: function () {
+            $("#controller").css("zIndex", 1);
+            print("ready");
+            $("#command").focus()
+        },
+        autoOpen: false
+    });
+
+    $("#remap-inner").dialog({
+        modal: true, dialogClass: "big",
+        width: 850, minHeight: 50,
+        show: "fade", hide: "explode",
+        resizable: false, draggable: false,
+        close: function () {
+            $("#controller").css("zIndex", 1);
+            print("ready");
+            $("#command").focus()
+        },
+        autoOpen: false
     });
 
 
@@ -201,9 +253,8 @@ $(document).ready(function () {
 
 function compareTimes(time1, time2) {
     //check if times are in mm:ss format
-    if (!time1.match(/^\d{1,2}:\d{2}$/) || !time2.match(/^\d{1,2}:\d{2}$/)) {
-        return NaN;
-    }
+    let rgx = /^\d{1,2}:\d{2}$/;
+    if (!time1.match(rgx) || !time2.match(rgx)) return NaN;
 
     let time1Arr = time1.split(":");
     let time2Arr = time2.split(":");
@@ -214,18 +265,8 @@ function compareTimes(time1, time2) {
 
 function keydownHandler(event) {
     if (event.which === 13) { //enter
-        let command = $("#command").val();
-        $("#command").val("");
-        process(command);
-    } else if (event.which === 32 && !isPrompt) { //spacebar
-        if(!modMode) {
-            if (!timer) {
-                timer = setInterval(tick, 1000);
-            } else {
-                clearInterval(timer);
-                timer = null;
-            }
-        } else {
+        let cmd = $("#command").val();
+        if(modMode && cmd === "") {
             if($("#total-time").html() === "0:00") return;
             clearInterval(mcTimer1);
             $("#speaker-time").html(modSpeakerTime);
@@ -236,6 +277,41 @@ function keydownHandler(event) {
             $("#speaker-time").css("color", "white");
             mcTimer1 = null;
             mcTimer1 = setInterval(modTick, 1000);
+            modPaused = false;
+        } else if(bigTimerWhip && cmd === "") {
+            clearInterval(bigTimer);
+            $("#timer").html(whipSpeakerTime);
+            bigTimer = null;
+            bigTimer = setInterval(bigTick, 1000);
+            bigTimerPaused = false;
+        } else {
+            $("#command").val("");
+            process(cmd);
+        }
+
+    } else if (event.which === 32 && !isPrompt) { //spacebar
+        if(bigTimerMode) {
+            if(!bigTimerPaused) {
+                if($("#timer").html() === "0:00") return;
+                clearInterval(bigTimer);
+                bigTimer = null;
+            } else bigTimer = setInterval(bigTick, 1000);
+            bigTimerPaused = !bigTimerPaused;
+        } else if(modMode) {
+            if(!modPaused) {
+                if($("#timer").html() === "0:00") return;
+                clearInterval(mcTimer1);
+                // clearInterval(tim)
+                mcTimer1 = null;
+            } else mcTimer1 = setInterval(modTick, 1000);
+            modPaused = !modPaused;
+        } else {
+            if (!timer) {
+                timer = setInterval(tick, 1000);
+            } else {
+                clearInterval(timer);
+                timer = null;
+            }
         }
 
         $("#command").val("");
@@ -252,6 +328,7 @@ function keydownHandler(event) {
         }
         isPrompt = false;
         if(modMode) modMode = false;
+        if(bigTimerMode) bigTimerMode = false;
         callback = null;
         $(this).val("");
         print("ready");
@@ -292,7 +369,7 @@ function bigTick() {
     let seconds = (parseInt(time[0], 10) * 60) + parseInt(time[1], 10) - 1;
     console.log(seconds);
     if (seconds === 0) {
-        $("#timer").effect("shake", {times: 1000, distance: "10"}, 100);
+        $("#timer").effect("shake", {times: 5, distance: "10"}, 100);
         clearInterval(bigTimer);
         bigTimer = null;
     }
@@ -308,7 +385,7 @@ function modTick() {
     let speakerSeconds = (parseInt(speakerTime[0], 10) * 60) + parseInt(speakerTime[1], 10) - 1;
     console.log(speakerSeconds);
     if (seconds === 0) {
-        $("#total-time").effect("shake", {times: 1000, distance: "10"}, 100);
+        $("#total-time").effect("shake", {times: 5, distance: "10"}, 100);
         clearInterval(mcTimer1);
         mcTimer1 = null;
     } if(speakerSeconds === 0) {
@@ -353,78 +430,9 @@ function process(command) {
         return;
     }
 
-    switch ($.trim(command.toLowerCase())) {
-        case "about": case "version":
-            about();
-            break;
-        case "a": case "add":
-            prompt("add? (q to exit)", add);
-            isCountryPrompt = true;
-            break;
-        case "b": case "boot":
-            boot();
-            break;
-        case "c": case "change":
-            prompt("change?", change);
-            break;
-        case "clear":
-            prompt("CLEAR?", clear, "no");
-            break;
-        case "d": case "del": case "delete":
-            prompt("delete? (q to exit)", deleter);
-            break;
-        case "e": case "extend":
-            extend();
-            break;
-        case "x": case "esc": case "exit":
-            keydownHandler({which: 27}); //simulate escape
-            break;
-        case "f": case "flip":
-            prompt("flip?", flip);
-            break;
-        case "h": case "?": case "help":
-            help();
-            break;
-        case "i": case "insert":
-            prompt("insert?", insert);
-            isCountryPrompt = true;
-            break;
-        case "m": case "mod":
-            prompt("set time to?", mod, "5:00");
-            break;
-        case "n": case "next":
-            next();
-            break;
-        case "p": case "prev": case "previous":
-            prev();
-            break;
-        case "s": case "switch":
-            switcher();
-            break;
-        case "sh": case "settitle":
-            prompt("set title to?", setTitle, $("#title").html());
-            break;
-        case "sq": case "setquorum":
-            prompt("set quorum to?", setQuorum, parseInt($("#info-quorum").html()));
-            break;
-        case "st": case "settime":
-            prompt("set time to?", setTime, parseInt($("#info-time").html()));
-            break;
-        case "se": case "setext": case "setexts": case "setextensions":
-            prompt("set extensions to?", setExtensions, extensions[list]);
-            break;
-        case "space":
-            keydownHandler({which: 32}); //simulate spacebar
-            break;
-        case "t": case "timer":
-            prompt("set timer to? (mm:ss)", startTimer, "5:00");
-            break;
-        case "v": case "vote":
-            vote();
-            break;
-        default:
-            print("unrecognized command. try again?");
-    }
+    let trimmedCommand = $.trim(command);
+    if(trimmedCommand in keymaps) keymaps[trimmedCommand]();
+    else print("unrecognized command. try again?");
 }
 
 function help() {
@@ -443,14 +451,15 @@ function checkTime(time) {
     } else if (time.match(/^0:00$/)) {
         /* there was a bug where 0:00 would make the timer go into negative time. I was too lazy to fix this, so
         I figured: denial is the answer to most of life"s problems--let"s fix another one */
-        print("why. why would you want to do that");
+        print("invalid time");
         good = false;
     }
     return good;
 }
 
 function startTimer(time) {
-    if (!checkTime(time)) return;
+    if(time.match(/^\d+$/)) time += ":00";
+    else if (!checkTime(time)) return;
 
     $("#timer").html(time);
     $("#timer").dialog("open");
@@ -458,11 +467,13 @@ function startTimer(time) {
     $("#command").focus();
 
     clearInterval(bigTimer);
+    bigTimerMode = true;
     bigTimer = setInterval(bigTick, 1000);
 }
 
 function mod(time) {
-    if (!checkTime(time)) return;
+    if(time.match(/^\d+$/)) time += ":00";
+    else if (!checkTime(time)) return;
 
     clearInterval(mcTimer1);
     $("#total-time").html(time);
@@ -478,8 +489,10 @@ function enterMod(speakerTime) {
     }
     modSpeakerTime = speakerTime;
     modMode = true;
+    modPaused = false;
 
-    let totalTimes = $("#total-time").html().split(":");
+    let modTimer = $("#total-time").html();
+    let totalTimes = modTimer.split(":");
     let speakerTimes = speakerTime.split(":");
     if(totalTimes[0] < speakerTimes[0] || (totalTimes[0] === speakerTimes[0] && totalTimes[1] < speakerTimes[1])) {
         print("invalid speaker time: must be less than total time");
@@ -492,7 +505,9 @@ function enterMod(speakerTime) {
     $("#command").focus();
 
     clearInterval(mcTimer1);
-    keydownHandler({which: 32}); //simulate spacebar (reset timer color)
+    keydownHandler({which: 14});
+    setTimeout(function() {}, 100);
+    keydownHandler({which: 14}); //simulate enter (reset timer color)
     mcTimer1 = setInterval(modTick, 1000);
 }
 
@@ -541,7 +556,7 @@ function tallyResults() {
 }
 
 function about() {
-    print("v" + VERSION + " - developed by nikhil benesch");
+    print("v" + VERSION + " - developed by nikhil benesch and ishaan ramesh");
 }
 
 function setTitle(input) {
@@ -618,10 +633,14 @@ function boot() {
 
 function add(input) {
     if (input !== "quit" && input !== "q") {
-        countries[list].push(findCountry(input));
-        generateList();
+        if(input.length < 3) {
+            prompt("too short. add something else? (q to exit)", add);
+        } else {
+            countries[list].push(findCountry(input));
+            generateList();
+            prompt("add? (q to exit)", add);
+        }
 
-        prompt("add? (q to exit)", add);
         isCountryPrompt = true;
     }
 }
@@ -633,15 +652,55 @@ function extend() {
         $("#info-extensions").html((rextensions - 1) + "x " + extensionTimes[list] + "s");
         $("#info-time").html((parseInt($("#info-time").html()) + extensionTimes[list]) + " seconds");
     } else {
-        $("#info-extensions").css("color", "red");
-        print("no remaining extensions!")
+        $("#info-extensions").css("color", "#a20");
+        print("no remaining extensions!");
     }
     clearTimeout(timer);
     timer = null;
 }
 
+function remap() {
+    let keymapList = $("#keymap");
+    let keymapSet = [];
+    let displaySet = [];
+    //set keymapSet to keymaps with duplicates removed
+    outerLoop: for (let key in keymaps) {
+        for(let otherKey in keymapSet) {
+            if(keymaps[key]===keymaps[keymapSet[otherKey]]) {
+                displaySet[otherKey] += "</span>/<span class='mono'>" + key;
+                continue outerLoop;
+            }
+        }
+        keymapSet.push(key);
+        displaySet.push(key);
+    }
+
+    let htmlStr = "";
+    for (let key in displaySet) {
+        htmlStr += "<li> <a onclick='innerRemap(this.innerText)'> <span class='mono'>" + displaySet[key] + "</div> </a> </li>";
+    }
+    keymapList.html(htmlStr);
+    $("#remap").dialog("open");
+}
+
+function innerRemap(inp) {
+    let keys = inp.split("/");
+    let htmlString = "";
+    for(let key in keys) {
+        htmlString += "<a id='key_" + key + "' onclick='changeKey(this);'>" + keys[key] + "</a>&nbsp;";
+    }
+
+    $("#key").html(htmlString);
+    $("#remap-inner").dialog("open");
+}
+
+function changeKey(tag) {
+    alert(tag.innerHtml());
+    tag.innerHtml("<input type='text' />")
+}
+
 function clear(input) {
-    if (input === "yes") {
+    if (input === "yes"  || input === "y") {
         countries[list] = [];
         current[list] = 0;
         generateList();
@@ -731,6 +790,13 @@ function prev() {
     boot();
 }
 
+function whip(input) {
+    if(input.match(/^\d+$/)) input = "0:" + input;
+    bigTimerWhip = true;
+    whipSpeakerTime = input;
+    startTimer(whipSpeakerTime);
+}
+
 function generateList() {
     $("#speaker-list").html("");
     $("#speaker-list").removeClass().addClass("list" + list);
@@ -777,7 +843,7 @@ function findCountry(input) {
         ld = levenshtein(input, countryList[i]);
         if (ld < min) {
             min = ld;
-            country = countryList[i];
+            country = countryList[i]==="Bosnia" ? "Bosnia and Herzegovina" : countryList[i];
         }
     }
 

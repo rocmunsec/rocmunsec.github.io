@@ -63,7 +63,7 @@ with mun.track. If not, see <http://www.gnu.org/licenses/>.
 
     <div id="help" title="Help">
       <p>mun.track functions much like a standard command line. Type the following commands in the textbox at the bottom
-        of the page, and follow the relevant prompts.</p>
+        of the page, and follow the relevant prompts. Hit <em>escape</em> to exit this dialog.</p>
       <br />
       <table style="width: 100%">
         <tr><td><code>h</code>/<code>help</code></td><td>Display this help dialog</td></tr>
@@ -77,6 +77,7 @@ with mun.track. If not, see <http://www.gnu.org/licenses/>.
         <tr><td><code>c</code>/<code>change</code></td><td>Change delegate in current speakers list</td></tr>
         <tr><td><code>f</code>/<code>flip</code></td><td>Flip delegates in current speakers list</td></tr>
         <tr><td><code>d</code>/<code>delete</code></td><td>Remove delegates from current speakers list</td></tr>
+        <tr><td><code>D</code>/<code>deleteall</code></td><td>Remove all delegates from current speakers list</td></tr>
         <tr><td><code>n</code>/<code>next</code></td><td>Advance speakers list</td></tr>
         <tr><td><code>p</code>/<code>prev</code></td><td>Return to previous delegate in speakers list</td></tr>
         <tr><td>&nbsp;</td></tr>
@@ -86,12 +87,15 @@ with mun.track. If not, see <http://www.gnu.org/licenses/>.
         <tr><td><code>t</code>/<code>timer</code></td><td>Start large timer (for caucuses)</td></tr>
         <tr><td><code>m</code>/<code>mod</code></td><td>Start moderated caucus (individual timers
           for each speaker)</td></tr>
+        <tr><td><code>w</code>/<code>whip</code></td><td>Start a whip (infinite series of timers)</td></tr>
         <tr><td><em>spacebar</em></td><td>Start/stop speaking timer</td></tr>
       </table>
       <br>
       <aside>
-        mun.track is free software, developed by Nikhil Benesch and Ishaan Ramesh.
-        <a id="source-code-link" href="https://github.com/MEisSCAMMER/mun.track">More help/source code</a>
+        <p>
+          mun.track is free software, developed by Nikhil Benesch and Ishaan Ramesh.
+          <a id="source-code-link" href="https://github.com/MEisSCAMMER/mun.track">More help/source code</a>
+        </p>
       </aside>
     </div>
 
@@ -118,6 +122,18 @@ with mun.track. If not, see <http://www.gnu.org/licenses/>.
       <p>Unfortunately, we've had to erase any existing data. Sorry for the inconvenience!</p>
     </div>
 
+    <div id="remap" title="Remap Keys">
+      <p>Click on an item to remap it</p>
+      <div>
+        <ul id="keymap"></ul>
+      </div>
+    </div>
+
+    <div id="remap-inner">
+      <p><a>Add...</a></p>
+      <div id="key"></div>
+    </div>
+
     <div id="controller">
       <div id="console">
         ready. <a href="javascript:process('?');">help?</a>
@@ -126,4 +142,5 @@ with mun.track. If not, see <http://www.gnu.org/licenses/>.
     </div>
   </body>
 </html>
+
 
