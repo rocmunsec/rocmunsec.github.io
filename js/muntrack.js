@@ -326,6 +326,7 @@ function keydownHandler(event) {
             clearInterval(mcTimer1);
             mcTimer1 = null;
         }
+        if(bigTimerPaused) bigTimerPaused = false;
         isPrompt = false;
         if(modMode) modMode = false;
         if(bigTimerMode) bigTimerMode = false;
